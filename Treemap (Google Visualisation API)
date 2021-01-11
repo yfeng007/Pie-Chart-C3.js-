@@ -1,0 +1,103 @@
+
+    google.charts.load('current', {'packages':['treemap']});
+    google.charts.setOnLoadCallback(drawChart);
+
+                                               function drawChart() {
+                                                 var data = google.visualization.arrayToDataTable([
+                                                 ['Location', 'Parent', 'Tweets Volume (size)'],
+                                                 ['Global',    null,                 0],
+                                                 ['America',   'Global',             0],
+                                                 ['Europe',    'Global',             0],
+                                                 ['Asia',      'Global',             0],
+                                                 ['Australia', 'Global',             0],
+                                                 ['Africa',    'Global',             0],
+
+                                                 ['USA',       'America',            488],
+                                                 ['Other(America)',    'America',      6],
+                                                 ['Canada',    'America',            68],
+
+                                                 ['France',    'Europe',             28],
+                                                 ['Germany',   'Europe',             386],
+                                                 ['Ireland',    'Europe',            171],
+                                                 ['Italy',     'Europe',             3],
+                                                 ['UK',        'Europe',             0],
+
+                                                 ['London',     'UK',            1870],
+                                                 ['York',     'UK',              701],
+                                                 ['Wales',     'UK',             244],
+                                                 ['Manchester',     'UK',        198],
+                                                 ['Birmingham',     'UK',         137],
+                                                 ['Liverpool',     'UK',          133],
+                                                 ['Oxford',     'UK',          119],
+                                                 ['Bristol',     'UK',          93],
+                                                 ['Leeds',     'UK',          91],
+                                                 ['Glasgow',     'UK',          87],
+
+                                                 ['China',     'Asia',               4],
+                                                 ['Others(Asia)',     'Asia',        10],
+                                                 ['India',     'Asia',               92],
+
+                                                 ['Nigeria',     'Africa',           171],
+                                                 ['Pretoria', 'Africa',             32],
+                                                 ['Others(Africa)',     'Africa',            25]
+
+                                               ]);
+
+                                               var tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+
+                                               var options = { // For v49 or before
+                                                 highlightOnMouseOver: true,
+                                                 maxDepth: 1,
+                                                 maxPostDepth: 2,
+                                                 minHighlightColor: '#8c6bb1',
+                                                 midHighlightColor: '#9ebcda',
+                                                 maxHighlightColor: '#edf8fb',
+                                                 minColor: '#FABF62',
+                                                 midColor: '#f7f7f7',
+                                                 maxColor: '#66c2a5',
+                                                 headerHeight:30,
+
+                                                 showScale: true,
+                                                 height: 500,
+                                                 fontColor: 'white',
+                                                 fontWeight: 700,
+                                                 fontSize:16,
+                                                 useWeightedAverageForAggregation: true,
+                                                   generateTooltip: showFullTooltip
+                                               };
+
+                                               var optionsV50 = { // For v50+
+                                                 enableHighlight: true,
+                                                 maxDepth: 1,
+                                                 maxPostDepth: 2,
+                                                 minHighlightColor: '#8c6bb1',
+                                                 midHighlightColor: '#9ebcda',
+                                                 maxHighlightColor: '#edf8fb',
+                                                 minColor: '#FABF62',
+                                                 midColor: '#f7f7f7',
+                                                 maxColor: '#66c2a5',
+                                                 headerHeight: 30,
+                                                 showScale: true,
+                                                 height: 500,
+                                                 useWeightedAverageForAggregation: true,
+                                                 // Use click to highlight and double-click to drill down.
+                                                 eventsConfig: {
+                                                   highlight: ['click'],
+                                                   unhighlight: ['mouseout'],
+                                                   rollup: ['contextmenu'],
+                                                   drilldown: ['dblclick'],
+                                                 }
+                                               };
+
+                                                 tree.draw(data, options);
+
+                                                 function showFullTooltip(row, size, value) {
+                                                   return '<div style="background:#EEEED1; padding:10px; border-style:solid">' +
+                                                          '<span style="font-family:Courier"><b>' + data.getValue(row, 0) +
+                                                          '</b> '   + '</span><br>' +
+                                                           '<br>' +
+                                                    data.getColumnLabel(2) +
+                                                          ' (total value): ' + size + '<br>'  + ' </div>';
+                                                 }
+
+                                               }
