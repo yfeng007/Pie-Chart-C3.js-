@@ -1,0 +1,15 @@
+var chart1 = c3.generate({
+        bindto: '#chart1',
+        data: {
+           columns: [
+                ['locations', 75.0],
+                ['geocoded', 0.2],
+                ['no_location',24.7]
+               ],
+        type : 'pie',
+        colors: {
+                 locations: '#66c2a5',
+                 no_location: '#FABF62'
+         }
+        }
+    });
