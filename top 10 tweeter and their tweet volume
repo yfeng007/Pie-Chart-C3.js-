@@ -1,0 +1,60 @@
+var chart5 = c3.generate({
+          bindto: '#chart5',
+          padding: {
+            top: 10,
+            right: 30,
+            bottom: 10,
+            left: 130
+          },
+         size: {
+            height: 500
+         },
+         bar: {
+              width: 28
+         },
+
+         data: {
+              x: 'tweeters',
+              columns: [
+                 ['tweeters', 'Sei_selbst','Bot_TwLehrerZ','jo_jassy','Alima1000','oodlu_tweets','scot_tigger','daisi_education','htsilyrjb', 'FrauDoktor11', 'HeatherMassey2'],
+                 
+                 ['original_tweet', 57, 0, 34, 30, 19, 0, 15, 16, 16, 3 ],
+                 ['retweet', 0, 41, 0, 0, 0, 18, 3, 0, 0, 13]
+              ],
+
+               type: 'bar',
+               groups: [
+                        ['original_tweet','retweet']
+                        ],
+               colors: {
+                         original_tweet: '#66c2a5',
+                         retweet: '#FABF62'
+                      },
+               color: function (color, d) {
+                    // d will be 'id' when called for legends
+                     return d.id && d.id === 'data3' ? d3.rgb(color).darker(d.value / 150) : color;
+                  }
+
+                 },
+           legend: {
+                      show: true
+                },
+           axis: {
+               rotated: true,
+               x: {
+                  type: 'category',
+                 },
+               y:{
+                    tick: {
+                       culling: {
+                           max: 5
+                            }
+                 }
+                }
+             },
+            point:{
+                   show:false
+               }
+
+
+      });
