@@ -1,0 +1,17 @@
+var chart4 = c3.generate({
+     bindto: '#chart4',
+     size: {
+               height: 270
+      },
+     data: {
+     columns: [
+      ['Top_10_tweeter', 1.6],
+      ['Others',98.4]
+     ],
+     type : 'pie',
+     colors: {
+             Top_10_tweeter: '#66c2a5',
+              Others: '#FABF62'
+        }
+       }
+     });
