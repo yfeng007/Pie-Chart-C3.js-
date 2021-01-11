@@ -1,0 +1,20 @@
+var chart2 = c3.generate({
+            bindto: '#chart2',
+            data: {
+                 columns: [
+                        ['Negative', 53.7],
+                        ['others', 46.3],
+                      ],
+            type : 'donut',
+            colors: {
+                       Negative: '#66c2a5',
+                       others: '#FABF62'
+                     },
+                 onclick: function (d, i) { console.log("onclick", d, i); },
+                 onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                 onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+              },
+            donut: {
+                     title: "Sentiment"
+            }
+        });
