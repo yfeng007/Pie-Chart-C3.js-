@@ -1,0 +1,17 @@
+var chart6 = c3.generate({
+       bindto: '#chart6',
+       size: {
+             height: 270
+         },
+       data: {
+         columns: [
+             ['Top_retweet', 2.67],
+             ['Others',97.33]
+           ],
+       type : 'pie',
+       colors: {
+                 Top_retweet: '#66c2a5',
+                 Others: '#FABF62'
+           }
+       }
+     });
