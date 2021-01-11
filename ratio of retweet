@@ -1,0 +1,19 @@
+<script type="text/javascript">
+     var chart3 = c3.generate({
+     bindto: '#chart3',
+     size: {
+            height: 270
+         },
+     data: {
+     columns: [
+       ['Retweet', 54],
+       ['Original_Tweet',46]
+     ],
+     type : 'pie',
+     colors: {
+         Original_Tweet: '#66c2a5',
+         Retweet: '#FABF62'
+       }
+      }
+     });
+  </style>
